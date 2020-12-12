@@ -7,19 +7,24 @@ const ProjectCard: React.FC<{ project: Project }> = (props) => {
   const MotionBox = motion.custom(Box);
   return (
     <MotionBox
-      w={["150px","400px"]}
-        p={[5,10]}
+      w={["300px", "400px"]}
+      p={[5, 10]}
+      mx="auto"
       rounded={20}
       overflow="hidden"
       boxShadow="sm"
       border="solid"
-      _hover={{background:"black", color:"white"}}
-      transition={{duration:3}}
+      _hover={{ background: "black", color: "white" }}
+      transition={{ duration: 3 }}
     >
-      <Text fontSize="large" fontWeight="bold ">{project.title}</Text>
+      <Text fontSize="large" fontWeight="bold ">
+        {project.title}
+      </Text>
       <Box p={5}>
         {project.technologies.map((technology) => (
-          <Badge variant="solid" variantColor="purple" rounded="full" px={2}>{technology}</Badge>
+          <Badge variant="solid" variantColor="purple" rounded="full" px={2}>
+            {technology}
+          </Badge>
         ))}
       </Box>
       <Text>{project.description}</Text>
