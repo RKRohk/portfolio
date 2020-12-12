@@ -13,6 +13,7 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import Head from "next/head";
+import Projects from "../components/Projects/Projects";
 
 export default function Home() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -29,11 +30,13 @@ export default function Home() {
           aria-label="Dark Mode Switch"
           ml="80vw"
           mt={5}
-          icon={colorMode === "light" ? <MoonIcon /> : <SunIcon color="white" />}
+          icon={
+            colorMode === "light" ? <MoonIcon /> : <SunIcon color="white" />
+          }
           onClick={toggleColorMode}
         />
         <Container width="100vw" marginTop="auto" alignSelf="center">
-          <Center h="85vh">
+          <Center h="95vh">
             <Text
               fontSize="xxx-large"
               mx={10}
@@ -43,6 +46,22 @@ export default function Home() {
               Hi,<br></br>
               I'm Rohan
             </Text>
+          </Center>
+        </Container>
+        <Container height="100vh">
+        <Text
+              fontSize="xxx-large"
+              mx={10}
+              fontWeight="bold"
+              textAlign={["left", "center", "center"]}
+            >
+              My Projects
+            </Text>
+          <Center my={19}>
+          
+            <Box width="100vw">
+              <Projects />
+            </Box>
           </Center>
         </Container>
       </main>
