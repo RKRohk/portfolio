@@ -1,10 +1,11 @@
-import { Badge, Box, Text } from "@chakra-ui/react";
+import { Badge, Box, Text, useColorMode } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Project } from "../../types";
 
 const ProjectCard: React.FC<{ project: Project }> = (props) => {
   const project: Project = props.project as Project;
   const MotionBox = motion.custom(Box);
+  const { colorMode } = useColorMode();
   return (
     <MotionBox
       w={["300px", "400px"]}
@@ -14,15 +15,26 @@ const ProjectCard: React.FC<{ project: Project }> = (props) => {
       overflow="hidden"
       boxShadow="sm"
       border="solid"
-      _hover={{ background: "black", color: "white" }}
-      transition={{ duration: 3 }}
+      _hover={
+        colorMode === "light"
+          ? { background: "black", color: "white" }
+          : { background: "white", color: "black" }
+      }
+      whileHover={{
+        scale: 1.1,
+      }}
     >
       <Text fontSize="large" fontWeight="bold ">
         {project.title}
       </Text>
       <Box p={5}>
         {project.technologies.map((technology) => (
-          <Badge variant="solid" variantColor="purple" rounded="full" px={2}>
+          <Badge
+            variant="solid"
+            variantColor={colorMode === "light" ? "purple.100" : "teal"}
+            rounded="full"
+            px={2}
+          >
             {technology}
           </Badge>
         ))}
