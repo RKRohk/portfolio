@@ -83,7 +83,7 @@ const Skills: React.FC = () => {
         <Text fontSize="x-large">Languages</Text>
         <List py={5} spacing={3}>
           {languages.map((skill) => (
-            <ListItem>
+            <ListItem key={skill.name}>
               <ListIcon as={skill.icon} />
               {skill.name}
             </ListItem>
@@ -94,7 +94,7 @@ const Skills: React.FC = () => {
         <Text fontSize="x-large">Frameworks</Text>
         <List py={5} spacing={3}>
           {frameworks.map((skill) => (
-            <ListItem>
+            <ListItem key={skill.name}>
               <ListIcon as={skill.icon} />
               {skill.name}
             </ListItem>
@@ -105,7 +105,7 @@ const Skills: React.FC = () => {
         <Text fontSize="x-large">Tools</Text>
         <List py={5} spacing={3}>
           {tools.map((skill) => (
-            <ListItem>
+            <ListItem key={skill.name}>
               <ListIcon as={skill.icon} />
               {skill.name}
             </ListItem>
