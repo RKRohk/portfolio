@@ -31,6 +31,7 @@ import {
   SiGo,
   SiGraphql,
   SiJava,
+  SiJavascript,
   SiKotlin,
   SiMysql,
   SiNextDotJs,
@@ -45,7 +46,8 @@ interface skill {
 }
 
 const languages: skill[] = [
-  { name: "JavaScript/TypeScript", icon: SiTypescript },
+  { name: "JavaScript", icon: SiJavascript },
+  { name: "TypeScript", icon: SiTypescript },
   { name: "Dart", icon: SiDart },
   { name: "Python", icon: DiPython },
   { name: "Kotlin", icon: SiKotlin },
