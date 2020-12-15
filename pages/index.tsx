@@ -12,17 +12,21 @@ import {
   Text,
   useColorMode,
 } from "@chakra-ui/react";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import Projects from "../components/Projects/Projects";
 import Skills from "../components/Skills/Skills";
+import { Project } from "../types";
 
-export default function Home() {
+export default function Home(props: { projects: Project[] }) {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <div>
       <Head>
         <title>Rohan Kakar</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Rohan's Website" />
+        <meta name="robots" content="index, follow" />
       </Head>
 
       <main>
@@ -66,7 +70,7 @@ export default function Home() {
           </Text>
           <Center my={19}>
             <Box width="100vw">
-              <Projects />
+              <Projects projects={props.projects} />
             </Box>
           </Center>
         </Container>
@@ -93,3 +97,34 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const project1: Project = {
+    id: "1",
+    title: "KuebikoBot",
+    technologies: ["Python", "Telegram Bot Api", "AWS", "Docker"],
+    description:
+      "A telegram bot that deploys to heroku and downloads links and torrents and uploads to google drive and returns public share link.",
+  };
+  const project2: Project = {
+    id: "2",
+    title: "The Nature Fresh App",
+    technologies: ["Flutter", "Firebase", "Dart", "Android"],
+    description:
+      "A Flutter App to place orders for Mushrooms on a E-Commerce Platform",
+  };
+  const project3: Project = {
+    id: "3",
+    title: "Google Meet Api",
+    technologies: ["JavaScript", "Express.JS", "Google Meet", "Node.JS", "AWS"],
+    description:
+      "This API makes use of google calender api to generate google meet links. Also has a user-friendly auth system with create event form embedded.",
+  };
+
+  const items = [project1, project2, project3];
+  return {
+    props: {
+      projects: items,
+    }, // will be passed to the page component as props
+  };
+};

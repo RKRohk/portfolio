@@ -34,6 +34,7 @@ const ProjectCard: React.FC<{ project: Project }> = (props) => {
             variantColor={colorMode === "light" ? "purple.100" : "teal"}
             rounded="full"
             px={2}
+            key={`${project.title}${technology}`}
           >
             {technology}
           </Badge>
