@@ -4,14 +4,17 @@ import {
   Button,
   Center,
   Container,
+  Fade,
   Flex,
   IconButton,
   List,
   ListItem,
   MenuItem,
+  SlideFade,
   Text,
   useColorMode,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import Projects from "../components/Projects/Projects";
@@ -20,6 +23,7 @@ import { Project } from "../types";
 
 export default function Home(props: { projects: Project[] }) {
   const { colorMode, toggleColorMode } = useColorMode();
+  const MotionContainer = motion.custom(Container);
   return (
     <div>
       <Head>
@@ -40,25 +44,30 @@ export default function Home(props: { projects: Project[] }) {
           }
           onClick={toggleColorMode}
         />
-        <Container
-          width="100vw"
-          height="100vh"
-          marginTop="auto"
-          alignSelf="center"
-          className="hello"
+        <MotionContainer
+          animate={{ x: [-150, 150, 0], y: [-100, -50, 0] }}
+          initial={false}
         >
-          <Center h="95vh">
-            <Text
-              fontSize="xxx-large"
-              mx={10}
-              fontWeight="bold"
-              textAlign={["left", "center", "center"]}
-            >
-              Hi,<br></br>
-              I'm Rohan
-            </Text>
-          </Center>
-        </Container>
+          <Container
+            width="100vw"
+            height="100vh"
+            marginTop="auto"
+            alignSelf="center"
+            className="hello"
+          >
+            <Center h="95vh">
+              <Text
+                fontSize="xxx-large"
+                mx={10}
+                fontWeight="bold"
+                textAlign={["left", "center", "center"]}
+              >
+                Hi,<br></br>
+                I'm Rohan
+              </Text>
+            </Center>
+          </Container>
+        </MotionContainer>
         <Container className="projects" py={20} minH="100vh">
           <Text
             fontSize="xxx-large"
