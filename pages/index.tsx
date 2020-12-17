@@ -20,6 +20,7 @@ import Head from "next/head";
 import Projects from "../components/Projects/Projects";
 import Skills from "../components/Skills/Skills";
 import { Project } from "../types";
+import { getAllProjects } from "./api/project";
 
 export default function Home(props: { projects: Project[] }) {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -44,10 +45,7 @@ export default function Home(props: { projects: Project[] }) {
           }
           onClick={toggleColorMode}
         />
-        <MotionContainer
-          animate={{ x: [-150, 150, 0], y: [-100, -50, 0] }}
-          initial={false}
-        >
+        <MotionContainer>
           <Container
             width="100vw"
             height="100vh"
@@ -62,7 +60,7 @@ export default function Home(props: { projects: Project[] }) {
                 fontWeight="bold"
                 textAlign={["left", "center", "center"]}
               >
-                Hi,<br></br>
+                Hello,<br></br>
                 I'm Rohan
               </Text>
             </Center>
@@ -130,7 +128,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
       "This API makes use of google calender api to generate google meet links. Also has a user-friendly auth system with create event form embedded.",
   };
 
-  const items = [project1, project2, project3];
+  let items: Project[] = [];
+  try {
+    items = await getAllProjects();
+  } catch (error) {
+    items = [project1, project2];
+  }
   return {
     props: {
       projects: items,
