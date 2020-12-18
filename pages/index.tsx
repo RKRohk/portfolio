@@ -1,16 +1,10 @@
-import { MoonIcon, SearchIcon, SunIcon } from "@chakra-ui/icons";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Button,
   Center,
   Container,
-  Fade,
   Flex,
   IconButton,
-  List,
-  ListItem,
-  MenuItem,
-  SlideFade,
   Text,
   useColorMode,
 } from "@chakra-ui/react";
@@ -61,7 +55,7 @@ export default function Home(props: { projects: Project[] }) {
                 textAlign={["left", "center", "center"]}
               >
                 Hello,<br></br>
-                I'm Rohan
+                I'm Rohan Kakar
               </Text>
             </Center>
           </Container>

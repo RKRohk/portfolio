@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Center,
-  Container,
   Flex,
   FormControl,
   FormErrorMessage,
@@ -10,10 +9,10 @@ import {
   Input,
   Text,
 } from "@chakra-ui/react";
-import { Field, Form, Formik, FormikErrors, FormikValues } from "formik";
+import { Field, Form, Formik } from "formik";
 import Head from "next/head";
 
-export default function Login(props) {
+export default function Login() {
   return (
     <div>
       <Head>
