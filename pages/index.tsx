@@ -22,6 +22,24 @@ export default function Home(props: { projects: Project[] }) {
     <div>
       <Head>
         <title>Rohan Kakar</title>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        ></link>
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        ></link>
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        ></link>
+        <link rel="manifest" href="/site.webmanifest"></link>
         <meta name="title" content="Rohan Kakar"></meta>
         <meta
           name="description"
@@ -34,7 +52,7 @@ export default function Home(props: { projects: Project[] }) {
           property="og:description"
           content="Full Stack Web and Mobile Application Developer | Express JS | React JS | Flutter | GraphQL"
         ></meta>
-        <meta property="og:image" content=""></meta>
+        <meta property="og:image" content="/rohan.png"></meta>
 
         <meta property="twitter:card" content="summary_large_image"></meta>
         <meta property="twitter:url" content="https://rohankakar.co/"></meta>
@@ -43,7 +61,7 @@ export default function Home(props: { projects: Project[] }) {
           property="twitter:description"
           content="Full Stack Web and Mobile Application Developer | Express JS | React JS | Flutter | GraphQL"
         ></meta>
-        <meta property="twitter:image" content=""></meta>
+        <meta property="twitter:image" content="/rohan.png"></meta>
       </Head>
 
       <main>
