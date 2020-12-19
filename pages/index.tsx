@@ -14,7 +14,6 @@ import Head from "next/head";
 import Projects from "../components/Projects/Projects";
 import Skills from "../components/Skills/Skills";
 import { Project } from "../types";
-import { getAllProjects } from "./api/project";
 
 export default function Home(props: { projects: Project[] }) {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -23,9 +22,28 @@ export default function Home(props: { projects: Project[] }) {
     <div>
       <Head>
         <title>Rohan Kakar</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Rohan's Website" />
-        <meta name="robots" content="index, follow" />
+        <meta name="title" content="Rohan Kakar"></meta>
+        <meta
+          name="description"
+          content="Full Stack Web and Mobile Application Developer | Express JS | React JS | Flutter | GraphQL"
+        ></meta>
+        <meta property="og:type" content="website"></meta>
+        <meta property="og:url" content="https://rohankakar.co/"></meta>
+        <meta property="og:title" content="Rohan Kakar"></meta>
+        <meta
+          property="og:description"
+          content="Full Stack Web and Mobile Application Developer | Express JS | React JS | Flutter | GraphQL"
+        ></meta>
+        <meta property="og:image" content=""></meta>
+
+        <meta property="twitter:card" content="summary_large_image"></meta>
+        <meta property="twitter:url" content="https://rohankakar.co/"></meta>
+        <meta property="twitter:title" content="Rohan Kakar"></meta>
+        <meta
+          property="twitter:description"
+          content="Full Stack Web and Mobile Application Developer | Express JS | React JS | Flutter | GraphQL"
+        ></meta>
+        <meta property="twitter:image" content=""></meta>
       </Head>
 
       <main>
@@ -98,6 +116,8 @@ export default function Home(props: { projects: Project[] }) {
     </div>
   );
 }
+
+import { getAllProjects } from "./api/project";
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const project1: Project = {
