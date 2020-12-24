@@ -1,7 +1,7 @@
 import { MutableRefObject } from "react";
 import Projects from "./Projects/Projects";
 
-const Intro: React.FC<{ projectsRef: MutableRefObject<undefined> }> = (
+const Intro: React.FC<{ projectsRef: MutableRefObject<HTMLDivElement> }> = (
   props
 ) => {
   return (
@@ -21,10 +21,14 @@ const Intro: React.FC<{ projectsRef: MutableRefObject<undefined> }> = (
       <div
         className="sm:right-2 right-2 sm:pr-10 bottom-5 absolute flex items-center cursor-pointer sm:space-x-2 sm:bottom-2"
         onClick={(e) => {
-          window.scrollTo({
-            behavior: "smooth",
-            top: props.projectsRef?.current?.offsetTop,
-          });
+          if (props.projectsRef && props.projectsRef.current) {
+            const current = props.projectsRef.current;
+            if (current)
+              window.scrollTo({
+                behavior: "smooth",
+                top: current.offsetTop,
+              });
+          }
         }}
       >
         <div className="animate-bounce inline-block mr-0">My Skills</div>
