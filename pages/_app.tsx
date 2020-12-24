@@ -1,5 +1,6 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import "../styles/globals.css";
+import "tailwindcss/tailwind.css";
+
 const config = {
   useSystemColorMode: false,
   initialColorMode: "dark",

@@ -11,13 +11,14 @@ import {
 import { motion } from "framer-motion";
 import { GetStaticProps } from "next";
 import Head from "next/head";
+import { useRef } from "react";
+import Intro from "../components/Intro";
 import Projects from "../components/Projects/Projects";
 import Skills from "../components/Skills/Skills";
 import { Project } from "../types";
 
 export default function Home(props: { projects: Project[] }) {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const MotionContainer = motion.custom(Container);
+  const projectsRef = useRef();
   return (
     <div>
       <Head>
@@ -65,38 +66,8 @@ export default function Home(props: { projects: Project[] }) {
       </Head>
 
       <main>
-        <IconButton
-          colorScheme={colorMode === "light" ? "gray" : "light"}
-          aria-label="Dark Mode Switch"
-          ml="90vw"
-          mt={5}
-          icon={
-            colorMode === "light" ? <MoonIcon /> : <SunIcon color="white" />
-          }
-          onClick={toggleColorMode}
-        />
-        <MotionContainer>
-          <Container
-            width="100vw"
-            height="100vh"
-            marginTop="auto"
-            alignSelf="center"
-            className="hello"
-          >
-            <Center h="95vh">
-              <Text
-                fontSize="xxx-large"
-                mx={10}
-                fontWeight="bold"
-                textAlign={["left", "center", "center"]}
-              >
-                Hello,<br></br>
-                I'm Rohan Kakar
-              </Text>
-            </Center>
-          </Container>
-        </MotionContainer>
-        <Container className="projects" py={20} minH="100vh">
+        <Intro projectsRef={projectsRef} />
+        <Container ref={projectsRef} className="projects" py={20} minH="100vh">
           <Text
             fontSize="xxx-large"
             mx={10}
