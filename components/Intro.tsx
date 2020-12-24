@@ -19,7 +19,7 @@ const Intro: React.FC<{ projectsRef: MutableRefObject<HTMLDivElement> }> = (
         </ul>
       </div>
       <div
-        className="sm:right-2 right-2 sm:pr-10 bottom-5 absolute flex items-center cursor-pointer sm:space-x-2 sm:bottom-2"
+        className="sm:right-2 right-2 sm:pr-10 bottom-12 absolute flex items-center cursor-pointer sm:space-x-2 sm:bottom-2"
         onClick={(e) => {
           if (props.projectsRef && props.projectsRef.current) {
             const current = props.projectsRef.current;
@@ -31,9 +31,11 @@ const Intro: React.FC<{ projectsRef: MutableRefObject<HTMLDivElement> }> = (
           }
         }}
       >
-        <div className="animate-bounce inline-block mr-0">My Skills</div>
+        <div className="animate-bounce inline-block sm:mr-0 mr-1">
+          My Skills
+        </div>
         <svg
-          className="animate-bounce w-auto h-6 m-0 text-amber-900 sm:right-5 sm:m-14 "
+          className="animate-bounce w-auto h-6 m-0 text-amber-900 sm:right-5 sm:m-14"
           fill="none"
           strokeWidth="2"
           viewBox="0 0 24 24"
