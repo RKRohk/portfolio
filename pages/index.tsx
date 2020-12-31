@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { useRef } from "react";
+import DownArrow from "../components/DownArrow";
 import Intro from "../components/Intro";
 import Projects from "../components/Projects/Projects";
 import Skills from "../components/Skills/Skills";
@@ -19,6 +20,7 @@ import { Project } from "../types";
 
 export default function Home(props: { projects: Project[] }) {
   const projectsRef = useRef();
+  const skillsRef = useRef();
   return (
     <div>
       <Head>
@@ -67,7 +69,10 @@ export default function Home(props: { projects: Project[] }) {
 
       <main>
         <Intro projectsRef={projectsRef} />
-        <Container ref={projectsRef} className="projects" py={20} minH="100vh">
+        <div
+          ref={projectsRef}
+          className="projects relative w-full py-20 min-h-screen"
+        >
           <Text
             fontSize="xxx-large"
             mx={10}
@@ -78,16 +83,18 @@ export default function Home(props: { projects: Project[] }) {
           </Text>
           <Center my={19}>
             <Box width="100vw">
-              <Projects projects={props.projects} />
+              <Projects projects={props.projects} skillsRef={skillsRef} />
             </Box>
           </Center>
-        </Container>
+          <DownArrow nextRef={skillsRef} text={"My Skills"} />
+        </div>
         <Container
           d="flex"
           flexDirection="column"
           width="100vw"
           className="skills"
           height="100vh"
+          ref={skillsRef}
         >
           <Text
             fontSize="xxx-large"

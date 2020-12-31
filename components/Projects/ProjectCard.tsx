@@ -11,27 +11,21 @@ const ProjectCard: React.FC<{ project: Project }> = (props) => {
       w={["300px", "400px"]}
       p={[5, 10]}
       mx="auto"
-      rounded={20}
       overflow="hidden"
       boxShadow="sm"
-      border="solid"
-      _hover={
-        colorMode === "light"
-          ? { background: "black", color: "white" }
-          : { background: "white", color: "black" }
-      }
       whileHover={{
         scale: 1.1,
       }}
+      className="bg-gradient-to-br rounded-md border-gray-500 ring-2 from-blue-weird to-gray-900 hover:scale-110"
     >
-      <Text fontSize="large" fontWeight="bold ">
+      <Text fontSize="large" fontWeight="bold " mx="auto">
         {project.title}
       </Text>
       <Box p={5}>
         {project.technologies.map((technology) => (
           <Badge
             variant="solid"
-            variantColor={colorMode === "light" ? "purple.100" : "teal"}
+            className="font-yellowtail"
             rounded="full"
             px={2}
             key={`${project.title}${technology}`}

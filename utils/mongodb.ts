@@ -11,27 +11,3 @@ export const connectToDatabase = async () => {
     cachedDb = db;
     return cachedDb;
 }
-
-// function queryDatabase (db) {
-//   console.log('=> query database');
-//   return db.collection('items').find({}).toArray()
-//     .then(() => { return { statusCode: 200, body: 'success' }; })
-//     .catch(err => {
-//       console.log('=> an error occurred: ', err);
-//       return { statusCode: 500, body: 'error' };
-//     });
-// }
-// module.exports.handler = (event: any, context: { callbackWaitsForEmptyEventLoop: boolean; }, callback: (arg0: any, arg1: undefined) => void) => {
-//   context.callbackWaitsForEmptyEventLoop = false;
-//   console.log('event: ', event);
-//   connectToDatabase(MONGODB_URI)
-//     .then(db => queryDatabase(db))
-//     .then(result => {
-//       console.log('=> returning result: ', result);
-//       callback(null, result);
-//     })
-//     .catch(err => {
-//       console.log('=> an error occurred: ', err);
-//       callback(err,undefined);
-//     });
-// };
