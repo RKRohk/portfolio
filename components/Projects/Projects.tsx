@@ -13,7 +13,7 @@ const Projects: React.FC<{
 
   return (
     <div>
-      <SimpleGrid columns={{ sm: 2, md: 2, lg: 3 }} spacing={10}>
+      <SimpleGrid columns={{ sm: 2, md: 2, lg: 3 }} spacingY={5}>
         {projects.map((item) => (
           <ProjectCard project={item} key={item.title} />
         ))}

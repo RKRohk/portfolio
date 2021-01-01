@@ -1,5 +1,7 @@
 import { Badge, Box, Text, useColorMode } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { DiGithubBadge, DiGithubFull } from "react-icons/di";
+import { SiGithub } from "react-icons/si";
 import { Project } from "../../types";
 
 const ProjectCard: React.FC<{ project: Project }> = (props) => {
@@ -18,10 +20,25 @@ const ProjectCard: React.FC<{ project: Project }> = (props) => {
       }}
       className="bg-gradient-to-br rounded-md border-gray-500 ring-2 from-blue-weird to-gray-900 hover:scale-110"
     >
-      <Text fontSize="large" fontWeight="bold " mx="auto">
-        {project.title}
-      </Text>
-      <Box p={5}>
+      <Box alignItems="center">
+        <Text
+          display="inline-block"
+          fontSize="large"
+          fontWeight="bold "
+          mx="auto"
+        >
+          {project.title}
+        </Text>
+        <div
+          className="inline-block ml-4"
+          style={{ visibility: project.url ? "visible" : "hidden" }}
+        >
+          <a href={project.url} target="_blank">
+            <SiGithub />
+          </a>
+        </div>
+      </Box>
+      <Box px={5} py={2}>
         {project.technologies.map((technology) => (
           <Badge
             variant="solid"
