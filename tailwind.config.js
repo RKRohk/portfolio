@@ -12,7 +12,7 @@ module.exports = {
         }
       },
       fontFamily: {
-        "yellowtail":["Yellowtail","cursive"]
+        "yellowtail":["cursive"]
       }
     }
     
